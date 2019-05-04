@@ -1,0 +1,165 @@
+﻿[
+
+{
+"id":"sort1",
+"banner":"/image/c1.png",
+"cate":"文化产品",
+"detail":[
+		{
+		"thumb":"/image/c2.png",
+		"name":"文化衫",
+		"pageurl":"WenHuaShan"
+		},
+		{
+		"thumb": "/image/c3.png",
+		"name": "明信片",
+		"pageurl":"MingXinPian"
+		},
+		{
+		"thumb": "/image/c4.png",
+		"name": "包包类",
+		"pageurl":"BaoBaoLei"
+		},
+		{
+		"thumb": "/image/c3.png",
+		"name": "小饰品",
+		"pageurl":"XiaoShiPin"
+		}
+		]
+},
+{
+"id": "sort2",
+"banner": "/image/c1.png",
+"cate": "爱心物资",
+"detail": [
+		{
+		"thumb": "/image/s4.png",
+		"name": "化妆品",
+		"pageurl":"WenHuaShan"
+		},
+		{
+		"thumb": "/image/s5.png",
+		"name": "衣物类",
+		"pageurl":"MingXinPian"
+		},
+		{
+		"thumb": "/image/s6.png",
+		"name": "小物什",
+		"pageurl":"BaoBaoLei"
+		},
+		{
+		"thumb": "/image/s6.png",
+		"name": "其他类",
+		"pageurl":"XiaoShiPin"
+		}
+		]
+},
+{
+"id": "sort3",
+"banner": "/image/c1.png",
+"cate": "生活用品",
+"detail": [
+		{
+		"thumb":"/image/c2.png",
+		"name":"文化衫",
+		"pageurl":"WenHuaShan"
+		},
+		{
+		"thumb": "/image/c3.png",
+		"name": "明信片",
+		"pageurl":"MingXinPian"
+		},
+		{
+		"thumb": "/image/c4.png",
+		"name": "包包类",
+		"pageurl":"BaoBaoLei"
+		},
+		{
+		"thumb": "/image/c3.png",
+		"name": "小饰品",
+		"pageurl":"XiaoShiPin"
+		}
+		]
+},
+{
+"id": "sort4",
+"banner": "/image/c1.png",
+"cate": "学习用品",
+"detail": [
+		{
+		"thumb":"/image/c2.png",
+		"name":"文化衫",
+		"pageurl":"WenHuaShan"
+		},
+		{
+		"thumb": "/image/c3.png",
+		"name": "明信片",
+		"pageurl":"MingXinPian"
+		},
+		{
+		"thumb": "/image/c4.png",
+		"name": "包包类",
+		"pageurl":"BaoBaoLei"
+		},
+		{
+		"thumb": "/image/c3.png",
+		"name": "小饰品",
+		"pageurl":"XiaoShiPin"
+		}
+		]
+},
+{
+"id": "sort5",
+"banner": "/image/c1.png",
+"cate": "食品",
+"detail": [
+		{
+		"thumb":"/image/c2.png",
+		"name":"文化衫",
+		"pageurl":"WenHuaShan"
+		},
+		{
+		"thumb": "/image/c3.png",
+		"name": "明信片",
+		"pageurl":"MingXinPian"
+		},
+		{
+		"thumb": "/image/c4.png",
+		"name": "包包类",
+		"pageurl":"BaoBaoLei"
+		},
+		{
+		"thumb": "/image/c3.png",
+		"name": "小饰品",
+		"pageurl":"XiaoShiPin"
+		}
+		]
+},
+{
+"id": "sort6",
+"banner": "/image/c1.png",
+"cate": "饮料",
+"detail": [
+		{
+		"thumb":"/image/c2.png",
+		"name":"文化衫",
+		"pageurl":"WenHuaShan"
+		},
+		{
+		"thumb": "/image/c3.png",
+		"name": "明信片",
+		"pageurl":"MingXinPian"
+		},
+		{
+		"thumb": "/image/c4.png",
+		"name": "包包类",
+		"pageurl":"BaoBaoLei"
+		},
+		{
+		"thumb": "/image/c3.png",
+		"name": "小饰品",
+		"pageurl":"XiaoShiPin"
+		}
+		]
+}
+]
