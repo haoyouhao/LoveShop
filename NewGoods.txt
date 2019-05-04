@@ -1,5 +1,5 @@
 ﻿{
-"banner":"",
+"banner":"/image/s4.png",
 "cate":"新品推荐",
 "detail":[
 		{"imagelink":"/image/s4.png","name":"东小阳卫衣","price":"149元"},
