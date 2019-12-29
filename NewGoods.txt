@@ -1,8 +1,0 @@
-﻿{
-"banner":"/image/s4.png",
-"cate":"新品推荐",
-"detail":[
-		{"imagelink":"/image/s4.png","name":"东小阳卫衣","price":"149元"},
-		{"imagelink":"/image/s4.png","name":"面膜啊","price":"10元"},
-		{"imagelink":"/image/s4.png","name":"韩束面膜","price":"10元"}
-]}
