@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>爱心伞借用</title>
+	<link rel="stylesheet" href="../js/mdui_v0.4.3/css/mdui.min.css">
+	<script src="../js/mdui_v0.4.3/js/mdui.min.js"></script>
+	<script src="func.js"></script>
+
+	<meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1.0, user-scalable=no"/>
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+
+	<style type="text/css">
+		.body{
+			font-size: 16px;
+			background-color: #FFEFDB;
+		}
+		.line{
+			height: 1px;
+			background-color: #ababab;
+			margin:3px 0 3px 0 ;
+		}
+		.tip-box{
+			margin:10px 20px 10px 20px;
+		}
+		.box{
+			width: 80%;
+			margin: 0 auto;
+			background-color: #ffcc66;
+			border-radius: 10px;
+		}
+		.box-content-center{
+			display: flex;
+			justify-content: center;/*实现水平居中*/
+			align-items:center; /*实现垂直居中*/
+		}
+		.input-box{
+			height: 80px;
+			text-align: center;
+		}
+		.btn-box{
+			height: 40px ;
+			width: 80%;
+			margin-left:10%;
+		}
+		.btn{
+			 font-size: 16px;
+		}
+		.select-box{
+			height: 40px;
+		}
+		.san_id{
+			line-height: 40px;
+		}
+	</style>
+
+</head>
+<body class="body">
+
+
+
+
+<div class="mdui-grid-tile">
+  <a href="javascript:;"><img src="https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=1343015815,2335192405&fm=26&gp=0.jpg"/></a>
+  <div class="mdui-grid-tile-actions" ><!-- .mdui-grid-tile-actions-gradient 可以使操作栏拥有渐变背景。 -->
+    <div class="mdui-grid-tile-text">
+      <div class="mdui-grid-tile-title">提示：</div>
+      <div class="mdui-grid-tile-subtitle">1，一定要确保网络畅通哟!</div>
+      <div class="mdui-grid-tile-subtitle">2，扫出伞号，填写完整信息就可以免费借伞喽!</div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+<div class="line"></div>
+<div class="box">
+	<div style="width: 100%;">
+	<div class="san_id box-content-center" id="first1">爱心伞编号：<div id="san_id_qr"></div></div>
+	<div id="san_objectId" style="display: none;">这是爱心伞的唯一id编码</div>
+	<div class="btn-box box-content-center">
+		<a href="http://sao315.com/w/api/saoyisao" target="_self" style="width: 100%;height: 100%;text-decoration:none;">
+		<button class="btn mdui-btn mdui-ripple mdui-ripple-black mdui-color-yellow mdui-btn-block" id="first2">1.扫一扫</button>
+		</a>
+			<script src="https://cdn.staticfile.org/jquery/1.11.2/jquery.min.js"></script>
+			<script src="../js/Bmob-1.7.0.min.js"></script>
+			<script type="text/javascript">
+					
+					var qr=getQueryString("qrresult");
+						if(qr){
+							id2order(qr);
+							document.getElementById("san_objectId").innerHTML=qr;
+							// $("#san_id_qr").html(qr);
+						}
+					function getQueryString(name)
+						{
+						var reg = new RegExp("\\b"+ name +"=([^&]*)");
+						var r = location.href.match(reg);
+						if (r!=null) 
+						return decodeURIComponent(r[1]);
+						}
+					function id2order(objectId) {
+						Bmob.initialize("826cd8537061508f02fdd28d8739bc38","17e587def0429c2653ca3418ad1068f6");
+						order_table = "san_order"
+						const state = Bmob.Query(order_table);
+						state.get(objectId).then(res => {
+						  console.log(res)
+						  san_order = res.san_order
+						  document.getElementById("san_id_qr").innerHTML=san_order+"号";
+						}).catch(err => {
+						  console.log(err)
+						})
+					}
+			</script>
+
+
+	</div>
+	</div>
+</div>
+
+
+
+
+<div class="line"></div>
+<div class="box box-content-center select-box">
+	<!-- <div class="mdui-text-color-black-text">2.</div> -->
+	<div style="width: 80%;text-align: center;">
+	<select class="mdui-select" mdui-select id="san_place">
+	  <option value="1">2.请选择借伞地址：</option>
+	  <option value="2">爱心屋</option>
+	  <option value="3">勤助</option>
+	  <option value="4">图书馆</option>
+	</select>
+</div>
+</div>
+
+
+<div class="line"></div>
+<div class="box box-content-center input-box">
+<div class="mdui-textfield mdui-textfield-floating-label" style="width: 90%;">
+  <label class="mdui-textfield-label mdui-text-color-black-text" id="third">3.请输入您的姓名（或填写称谓）</label>
+  <input class="mdui-textfield-input" type="text" id="san_name" />
+</div>
+</div>
+
+
+<div class="line"></div>
+<div class="box box-content-center input-box">
+<div class="mdui-textfield mdui-textfield-floating-label" style="width: 90%;">
+  <label class="mdui-textfield-label mdui-text-color-black-text" id="four">4.请输入手机号，确保能联系到您</label>
+  <input class="mdui-textfield-input" type="tel" maxlength="11" id="san_phone" />
+</div>
+</div>
+
+
+
+<div class="line"></div>
+<div class="box">
+	<div style="width: 100%;">
+	<div class="san_id box-content-center" id="five1">点击下面借伞哦</div>
+	<div class="btn-box box-content-center">
+	<button class="btn mdui-btn mdui-ripple mdui-ripple-black mdui-color-yellow mdui-btn-block" onclick="san_ok_check()" id="five2">5.借伞</button>
+	</div>
+	</div>
+</div>
+
+
+
+<div class="mdui-dialog" id="san_confirm">
+  <div class="mdui-dialog-title">借伞确认</div>
+  <div class="mdui-dialog-content" id="san_ok_content"></div>
+  <div class="mdui-dialog-actions">
+    <button class="mdui-btn mdui-ripple" mdui-dialog-close>取消借伞</button>
+    <button class="mdui-btn mdui-ripple" mdui-dialog-confirm onclick="san_ok_up();clear_content();">确认借伞</button>
+  </div>
+</div>
+<div class="mdui-dialog" id="san_fill">
+  <div class="mdui-dialog-title">警告 <_< !</div>
+  <div class="mdui-dialog-content">说你呢，信息填写不完整怎么借伞鸭，请重新填写！</div>
+  <div class="mdui-dialog-actions">
+    <button class="mdui-btn mdui-ripple" mdui-dialog-confirm>朕要重新填写</button>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+<div class="line"></div>
+
+<div class="footer" style="height: 2em;"></div>
+</body>
+</html>

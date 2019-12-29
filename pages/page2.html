@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>爱心伞借取记录</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1.0, user-scalable=no"/>
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <style type="text/css">
+        @font-face {
+            font-family: thin;
+            src: url("font/san.ttf")
+        }
+
+        .MYthin{
+            font-family: thin;
+            color:#f00;
+            font-size: 15px;
+        }
+        body{
+            background-color: #FFE4C4;
+            padding: 0;
+            margin: 0;
+            color: #999;
+        }
+		.toper{
+            width: 90%;
+            height: 2em;
+            line-height: 2em;
+            font-size: 1.5em;
+            color: #292929;
+            margin: 15px 5% 0px 5%;
+            text-align: center;
+			background-color: #FFC125;
+			border-radius: 10px;
+		}
+        .body{
+            width: 84%;
+            margin: 4% 8% 0 8%;
+            box-shadow: 2px 3px 5px #e4e3e3;
+            background-color: #FFFFFF;
+            font-size: 10px;
+            border-radius: 15px 5px 15px 5px;
+            padding-bottom: 0.8em;
+        }
+        .time{
+            width: 100%;
+            height: 3em;
+            line-height: 3em;
+            font-size: 1.6em;
+            color: #666;
+        }
+        .time-l{
+            margin-left: 4%;
+        }
+
+        .wrapper{
+            width: 100%;
+            height: 3em;
+            line-height: 3em;
+            display:  flex;
+            flex-direction: row;
+            margin-top: 0px;
+            position: relative;
+        }
+        .left-wrapper{
+            margin-left: 6%;
+            width: 4em;
+        }
+        .right-wrapper{
+        }
+        .sound{
+            height: 3em;
+            width: 1.6em;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .sound-top{
+            width: 0.1em;
+            height: 1em;
+            background-color: #d8d3d3;
+        }
+        .sound-middle{
+            width: 0.8em;
+            height: 0.8em;
+            background-color: #fff;
+            border-radius: 50%;
+            border: 1px solid #ccc;
+        }
+        .sound-bottom{
+            width: 0.1em;
+            height: 1.1em;
+            background-color: #d8d3d3;
+        }
+        .footer{
+            height: 3em;
+        }
+
+    </style>
+
+<script type="text/javascript" src="js/Bmob-1.7.0.min.js"></script>
+<script type="text/javascript">
+    Bmob.initialize("826cd8537061508f02fdd28d8739bc38", "17e587def0429c2653ca3418ad1068f6");
+
+    _table = "san_history"
+    // _table = "timediary"
+    const query = Bmob.Query(_table);
+    query.find().then(res => {
+        var str = "";
+        var bmob=document.getElementById('bmob');
+        var length = res.length;
+        //数据获取并分析排序
+        var note = 0;
+        var num = 0;
+        for (var j = res.length -1; j >= 0; j--) {
+        	j = j - num ;
+        	if (j >= 0 ){
+            	num = -1;
+            	// alert(j+"@@@"+res[j].createdAt)
+                var createdAt = res[j].createdAt.substring(0,10).trim();
+
+                str +='<div class="body" id="body">';
+                str +=      '<div class="time"><span class="time-l" id="time_l">'+createdAt+'</span></div>';
+
+                for (var i = res.length - 1; i >= 0; i--) {//forrrrrr
+	            	var createdAt_i = res[i].createdAt.substring(0,10).trim();
+	                if(createdAt_i == createdAt){
+                            var method = "使用"
+                            if(String(res[i].method) == String("借走")){
+                                method = "J" ; // 自造字体中的J表示借，H表示还
+                                san_name = res[i].san_name.substring(0,1).trim();
+                            }else{ 
+                                method = "H" ;
+                                san_name = "DHU";
+                            }
+
+                            str +='<div class="wrapper" id="wrapper">';
+                            str +=      '<div class="left-wrapper" id="time">'+res[i].createdAt.substring(11,19).trim()+'</div>';
+                            str +=      '<div class="sound" >';
+                            str +=              '<div class="sound-top"></div>';
+                            str +=              '<div class="sound-middle"></div>';
+                            str +=              '<div class="sound-bottom"></div>';
+                            str +=      '</div>';
+                            str +=      '<div class="right-wrapper" id="content"><span class="MYthin">Z</span> '+res[i].san_order +' 被"'+san_name+'"小可爱 <span class="MYthin">'+ method +'</span> 喽≧▽≦！</div>';
+                            str +='</div> ';
+	                    note = 1;
+	                    num = num + 1;
+	                }
+				}//forrrrrr
+                str +='</div>';
+            }}
+
+        if (note!=0) {
+            bmob.innerHTML=str;
+        }else{
+            bmob.innerHTML='<div class="body" id="body"><div class="time"><span class="time-l" id="time_l">暂无借伞记录！</span></div></div>';
+        }
+    });
+
+
+</script>
+</head>
+<body>
+	<div class="toper"><b>爱 心 伞 借 取 记 录</b></div>
+    <div id="bmob"></div>
+    <div class="footer"></div>
+</body>
+</html>
